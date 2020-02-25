@@ -1,10 +1,10 @@
-package gettestie.src.main.java.rocks.zipcode;
+package rocks.zipcode;
 
 
 public class Person {
     private String name;
-    private int yearOfBirth;
     private Address address;
+    private int yearOfBirth;
 
     /**
      * Create a person with given name and age.
