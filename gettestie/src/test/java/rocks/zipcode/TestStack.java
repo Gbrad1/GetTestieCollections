@@ -21,4 +21,9 @@ public class TestStack {
     }
 
     // Make a bigger test exercising more Stack methods.....
+
+    @Test
+    public void testHashSet() {
+        HashMap<key, value> myHashMap = new HashMap();
+    }
 }
