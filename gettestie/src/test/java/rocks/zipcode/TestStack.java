@@ -152,11 +152,12 @@ public class TestStack {
         Person person = new Person("Emily", 1996);
         listOfBirthDates.add(person.getYearOfBirth());
 
-        Integer expected = 1996;
         Integer expectedSize = 1;
         Integer actual = listOfBirthDates.size();
 
-        assertEquals(expected, listOfBirthDates.contains(person.getYearOfBirth()));
+        assertTrue(listOfBirthDates.contains(1996));
         assertEquals(expectedSize, actual);
+        LOGGER.info("\n" + listOfBirthDates.toString());
+        LOGGER.info("\n" + actual);
     }
 }
