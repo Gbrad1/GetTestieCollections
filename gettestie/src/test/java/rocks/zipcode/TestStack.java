@@ -1,14 +1,8 @@
 package rocks.zipcode;
-
 import org.junit.Assert;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Stack;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class TestStack {
@@ -160,4 +154,164 @@ public class TestStack {
         LOGGER.info("\n" + listOfBirthDates.toString());
         LOGGER.info("\n" + actual);
     }
+
+    @Test
+    public void testLinkedList() {
+        LinkedList<Person> linkedList = new LinkedList<>();
+        Person person = new Person("Kali", 1997);
+        Person person2 = new Person("Lilli", 1998);
+        linkedList.add(person);
+        linkedList.add(person2);
+
+        Integer actual = linkedList.size();
+        Integer expected = 2;
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testArrayDeque() {
+        ArrayDeque<Person> arrayDequeExample = new ArrayDeque<>();
+        Person kali = new Person("Kali", 1997);
+        Person lilli = new Person("Lilli", 1998);
+        Person klaus = new Person("Klaus", 0002);
+        arrayDequeExample.add(kali);
+        arrayDequeExample.add(lilli);
+        arrayDequeExample.add(klaus);
+
+        Integer actual = arrayDequeExample.size();
+        Integer expected = 3;
+        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(arrayDequeExample.contains(kali));
+    }
+
+    @Test
+    public void testVector() {
+        Vector<Person> vectorExample = new Vector();
+        Person kali = new Person("Kali", 1997);
+        Person lilli = new Person("Lilli", 1998);
+        Person klaus = new Person("Klaus", 0002);
+        vectorExample.add(kali);
+        vectorExample.add(lilli);
+        vectorExample.add(klaus);
+        LOGGER.info("\n" + vectorExample.size());
+
+        Assert.assertTrue(!vectorExample.isEmpty());
+        Assert.assertTrue(vectorExample.contains(kali));
+    }
+
+    @Test
+    public void testTreeMap() {
+        TreeMap<Integer, Person> treeMapExample = new TreeMap<>();
+        TreeMap<Integer, Person> newTreeMapExample = new TreeMap<>();
+        Person kali = new Person("Kali", 1997);
+        Person lilli = new Person("Lilli", 1998);
+        Person klaus = new Person("Klaus", 0002);
+        treeMapExample.put(1, kali);
+        treeMapExample.put(2, lilli);
+        treeMapExample.put(3, klaus);
+        newTreeMapExample.putAll(treeMapExample);
+
+        Integer expected = treeMapExample.size();
+        Integer actual = newTreeMapExample.size();
+
+        LOGGER.info("\n" + treeMapExample.keySet());
+        LOGGER.info("\n" + treeMapExample.entrySet());
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void stackTest() {
+        Stack<Person> exampleStack = new Stack<>();
+        Person kali = new Person("Kali", 1997);
+        Person lilli = new Person("Lilli", 1998);
+        Person klaus = new Person("Klaus", 0002);
+        exampleStack.push(kali);
+        exampleStack.push(lilli);
+        exampleStack.push(klaus);
+
+        exampleStack.pop();
+        Integer newStackLength = exampleStack.size();
+        Integer expected = 2;
+
+        LOGGER.info("\n" + exampleStack.size());
+
+        Assert.assertEquals(newStackLength, expected);
+    }
+
+    @Test
+    public void treeSetTest() {
+        TreeSet<String> treeSetExample = new TreeSet<>();
+        String a = "a";
+        String b = "b";
+        String c = "c";
+        treeSetExample.add(a);
+        treeSetExample.add(b);
+        treeSetExample.add(c);
+
+        String actual = treeSetExample.first();
+        String expected = "a";
+        LOGGER.info("\n" + treeSetExample);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void iteratorTest() {
+        ArrayList<String> a = new ArrayList<>();
+        Iterator iterator = a.iterator();
+        a.add("a");
+        a.add("b");
+        a.add("c");
+        a.add("d");
+        a.add("e");
+        Integer actual = a.size();
+        Integer expected = 5;
+
+        LOGGER.info("\n" + a.size());
+        for (String i : a) {
+            iterator.hasNext();
+            LOGGER.info("\n" + i);
+        }
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void priorityQueueTest() {
+        PriorityQueue<Integer> pqExample = new PriorityQueue<>();
+        pqExample.add(20);
+        pqExample.add(5);
+        pqExample.add(80);
+        pqExample.add(40);
+        pqExample.add(15);
+
+        pqExample.poll();
+        Integer actual = pqExample.size();
+        Integer expected = 4;
+        LOGGER.info("\n" + pqExample.size());
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void comparableTest() {
+        ArrayList<Person> list = new ArrayList<>();
+        Person kali = new Person("Kali", 1997);
+        Person lilli = new Person("Lilli", 1998);
+        Person klaus = new Person("Klaus", 0002);
+        list.add(kali);
+        list.add(lilli);
+        list.add(klaus);
+
+        Collections.sort(list);
+
+        Person actual = list.get(0);
+        Person expected = klaus;
+
+        LOGGER.info("\n" + list);
+
+        Assert.assertEquals(expected, actual);
+    }
+
 }

@@ -1,7 +1,7 @@
 package rocks.zipcode;
 
 
-public class Person {
+public class Person implements Comparable<Person> {
     private String name;
     private Address address;
     private int yearOfBirth;
@@ -62,5 +62,9 @@ public class Person {
     public String toString() // redefined from "Object"
     {
         return "Name: " + name + "\n" + "Year of birth: " + yearOfBirth + "\n";
+    }
+
+    public int compareTo(Person newPerson) {
+        return this.yearOfBirth - newPerson.yearOfBirth;
     }
 }
